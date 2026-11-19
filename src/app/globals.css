@@ -5,6 +5,7 @@
   --muted: rgb(243 240 234 / 0.6);
   --border: rgb(255 255 255 / 0.1);
   --accent: #ff5b2e;
+  --accent-soft: rgb(255 91 46 / 0.06);
 
   --container: 1100px;
   --gutter: 1.5rem;
@@ -56,4 +57,9 @@ a {
 :focus-visible {
   outline: 2px solid var(--accent);
   outline-offset: 2px;
+}
+
+::selection {
+  background: var(--accent);
+  color: var(--bg);
 }

@@ -70,6 +70,8 @@
 
 .list li {
   border-bottom: 1px solid var(--border);
+  animation: rise 600ms ease-out both;
+  animation-delay: calc(250ms + var(--i) * 80ms);
 }
 
 .row {
@@ -78,12 +80,17 @@
   align-items: baseline;
   gap: 1rem;
   padding-block: 1.5rem;
+  margin-inline: -1rem;
+  padding-inline: 1rem;
+  border-radius: 6px;
+  transition: background-color 200ms ease;
 }
 
 .index {
   font-family: var(--font-geist-mono), monospace;
   font-size: 0.875rem;
   color: var(--muted);
+  transition: color 150ms ease;
 }
 
 .name {
@@ -101,13 +108,36 @@
 }
 
 @media (hover: hover) {
+  .row:hover {
+    background: var(--accent-soft);
+  }
+
+  .row:hover .index {
+    color: var(--accent);
+  }
+
   .row:hover .arrow {
     color: var(--accent);
     transform: translateX(4px);
   }
 }
 
+.row:focus-visible {
+  background: var(--accent-soft);
+}
+
+.row:focus-visible .index,
+.row:focus-visible .arrow {
+  color: var(--accent);
+}
+
+.row:focus-visible .arrow {
+  transform: translateX(4px);
+}
+
 @media (prefers-reduced-motion: reduce) {
+  .row,
+  .index,
   .arrow {
     transition: none;
   }
@@ -127,4 +157,24 @@
     grid-column: 3;
     grid-row: 1;
   }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .list li {
+    animation: none;
+  }
+}
+
+.accent {
+  color: var(--accent);
+}
+
+.label::before {
+  content: "";
+  display: inline-block;
+  width: 0.5rem;
+  height: 0.5rem;
+  margin-right: 0.6rem;
+  border-radius: 50%;
+  background: var(--accent);
 }

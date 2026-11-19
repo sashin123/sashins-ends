@@ -9,7 +9,10 @@ export default function Home() {
   return (
     <>
       <section className={styles.hero}>
-        <h1 className={styles.title}>{"Sashin's Ends"}</h1>
+        <h1 className={styles.title}>
+          {"Sashin's "}
+          <span className={styles.accent}>Ends</span>
+        </h1>
         <p className={styles.intro}>
           On a lifelong journey of understanding how software really works, and
           building reliable things along the way. This is my space to learn out
@@ -21,7 +24,7 @@ export default function Home() {
         <h2 className={styles.label}>Projects</h2>
         <ul role="list" className={styles.list}>
           {projects.map((p, i) => (
-            <li key={p.slug}>
+            <li key={p.slug} style={{ "--i": i } as React.CSSProperties}>
               <Link href={`/projects/${p.slug}`} className={styles.row}>
                 <span className={styles.index}>
                   {String(i + 1).padStart(2, "0")}
