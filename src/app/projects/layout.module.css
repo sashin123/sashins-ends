@@ -87,3 +87,7 @@
   border: 0;
   border-top: 1px solid var(--border);
 }
+
+.prose figure {
+  margin: 0;
+}
