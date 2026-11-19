@@ -1,11 +1,10 @@
 import Link from "next/link";
+import { getProjects } from "@/lib/projects";
 import styles from "./page.module.css";
 
-const projects = [
-  { slug: "my-shell", title: "my-shell", blurb: "A Unix shell in Rust." },
-];
+export default async function Home() {
+  const projects = await getProjects();
 
-export default function Home() {
   return (
     <>
       <section className={styles.hero}>
@@ -30,7 +29,7 @@ export default function Home() {
                   {String(i + 1).padStart(2, "0")}
                 </span>
                 <span className={styles.name}>{p.title}</span>
-                <span className={styles.blurb}>{p.blurb}</span>
+                <span className={styles.blurb}>{p.description}</span>
                 <span className={styles.arrow} aria-hidden="true">
                   →
                 </span>

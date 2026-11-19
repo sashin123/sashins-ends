@@ -16,7 +16,10 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Sashin's Ends",
+  title: {
+    default: "Sashin's Ends",
+    template: "%s | Sashin's Ends",
+  },
   description:
     "A judgement-free place to learn in public: projects and writeups on systems programming and software engineering, built to grow my skills one project at a time.",
 };
